@@ -10,7 +10,7 @@ class App extends Component {
         super(props);
         this.state = {
             color: 'red',
-            fontSize: 15
+            fontSize: 16
         }
     }
     
@@ -18,18 +18,36 @@ class App extends Component {
         color: param
     })
 
+    setSize = value=>{
+        //8 <= size <=36
+        if((this.state.fontSize + value >=8) && (this.state.fontSize + value <=36)){
+            this.setState({
+                fontSize: this.state.fontSize + value
+            })
+        }
+    }
+
+    reset = value=>{
+        if(value) {
+            this.setState({
+                color: 'red',
+                fontSize: 16
+            })
+        }
+    }
+
     render() {
         return (
             <div className="container mt30">
                 <div className="row">
                     <ColorPicker color={ this.state.color } onReceivedColor={ this.setColor } />
                     <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <SizeSetting />
-                        <Reset />
+                        <SizeSetting fontSize={ this.state.fontSize } onReCeivedSize={ this.setSize }/>
+                        <Reset onReceivedReset={ this.reset }/>
                     </div>
                 </div>
                 <div className="row">
-                    <Result color={ this.state.color }/>
+                    <Result color={ this.state.color } fontSize={ this.state.fontSize }/>
                 </div>
             </div>
         );
