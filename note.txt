@@ -8,3 +8,5 @@ có truyền tham số ta dùng
 changeSize(value) {
     this.props.onReCeivedSize(value)
 }
+host
+http://colorchoose.freevnn.com/
