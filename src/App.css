@@ -35,3 +35,13 @@
     border: 2px solid red;
     padding: 10px;
 }
+
+span {
+    padding: 10px 20px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.active {
+    border: 2px solid black;
+}
